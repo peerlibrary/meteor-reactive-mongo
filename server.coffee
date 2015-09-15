@@ -1,8 +1,12 @@
 MeteorCursor = Object.getPrototypeOf(MongoInternals.defaultRemoteCollectionDriver().mongo.find()).constructor
 
 originalObserveChanges = MeteorCursor::observeChanges
-originalForEach = MeteorCursor::forEach
 originalCount = MeteorCursor::count
+
+# This is a PeerDB extension. It might not exist if the package is used without PeerDB.
+# But we defined a week dependency on PeerDB so that it is loaded before this package
+# to that PeerDB adds this extension before we get here.
+originalExists = MeteorCursor::exists
 
 MeteorCursor::_isReactive = ->
   # By default we make all cursors reactive. But you can
@@ -37,15 +41,18 @@ MeteorCursor::observeChanges = (options) ->
       handle.stop()
   handle
 
-MeteorCursor::forEach = (args...) ->
-  if @_isReactive()
-    @_depend
-      addedBefore: true
-      removed: true
-      changed: true
-      movedBefore: true
+for method in ['forEach', 'map', 'fetch']
+  do (method) ->
+    originalMethod = MeteorCursor::[method]
+    MeteorCursor::[method] = (args...) ->
+      if @_isReactive()
+        @_depend
+          addedBefore: true
+          removed: true
+          changed: true
+          movedBefore: true
 
-   originalForEach.apply @, args
+      originalMethod.apply @, args
 
 MeteorCursor::count = (args...) ->
   if @_isReactive()
@@ -53,4 +60,13 @@ MeteorCursor::count = (args...) ->
       added: true
       removed: true
 
-   originalCount.apply @, args
+  originalCount.apply @, args
+
+if originalExists
+  MeteorCursor::exists = (args...) ->
+    if @_isReactive()
+      @_depend
+        added: true
+        removed: true
+
+    originalExists.apply @, args

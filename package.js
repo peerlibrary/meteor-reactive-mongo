@@ -20,6 +20,13 @@ Package.onUse(function (api) {
     'peerlibrary:server-autorun@0.2.2'
   ], 'server');
 
+  // Package can be used without PeerDB. But if PeerDB is available, make
+  // sure it is loaded before this package so that PeerDB adds "exists"
+  // to the cursor before we make it reactive.
+  api.use([
+    'peerlibrary:peerdb@0.19.1'
+  ], 'server', {'weak': true});
+
   api.addFiles([
     'server.coffee'
   ], 'server');
