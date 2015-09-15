@@ -1,0 +1,3 @@
+[submodule "meteor"]
+	path = meteor
+	url = https://github.com/meteor/meteor.git
