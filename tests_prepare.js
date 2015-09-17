@@ -87,6 +87,8 @@ var IGNORED_TESTS = [
   'minimongo - observe ordered: true',
   'minimongo - observe ordered: false',
   'minimongo - observe ordered with projection',
+  'minimongo - reactive stop',
+  'minimongo - fetch in observe',
   // See https://github.com/meteor/meteor/issues/3599
   'minimongo - $near operator tests'
 ];
