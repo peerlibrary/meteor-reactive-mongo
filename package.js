@@ -59,6 +59,7 @@ Package.onTest(function (api) {
   api.add_files([
     // We modify environment to make Minimongo tests in fact use MongoDB database.
     'tests_prepare.js',
-    'meteor/packages/minimongo/minimongo_tests.js'
+    'meteor/packages/minimongo/minimongo_tests.js',
+    'tests.js'
   ], 'server');
 });

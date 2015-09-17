@@ -75,7 +75,8 @@ var IGNORED_TESTS = [
   'minimongo - pause',
   'minimongo - ids matched by selector',
 
-  // Fail because of difference between Minimongo and server.
+  // Fail because of difference between Minimongo and server. For some of these
+  // tests (those with autorun) we have a fixed version in tests.js.
   // See https://github.com/meteor/meteor/issues/3527
   'minimongo - basics',
   // See https://github.com/meteor/meteor/issues/5165
@@ -89,6 +90,8 @@ var IGNORED_TESTS = [
   'minimongo - observe ordered with projection',
   'minimongo - reactive stop',
   'minimongo - fetch in observe',
+  'minimongo - count on cursor with limit',
+  'minimongo - fine-grained reactivity of query with fields projection',
   // See https://github.com/meteor/meteor/issues/3599
   'minimongo - $near operator tests'
 ];
