@@ -34,8 +34,7 @@ MeteorCursor::_depend = (changers) ->
   initializing = false
 
 MeteorCursor::observeChanges = (options) ->
-  handle = Tracker.nonreactive =>
-    originalObserveChanges.call @, options
+  handle = originalObserveChanges.call @, options
   if Tracker.active and @_isReactive()
     Tracker.onInvalidate =>
       handle.stop()
