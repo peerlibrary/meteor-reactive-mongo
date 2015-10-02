@@ -17,7 +17,7 @@ Package.onUse(function (api) {
 
   // 3rd party dependencies.
   api.use([
-    'peerlibrary:server-autorun@0.2.2'
+    'peerlibrary:server-autorun@0.4.0'
   ], 'server');
 
   // Package can be used without PeerDB. But if PeerDB is available, make
@@ -48,7 +48,7 @@ Package.onTest(function (api) {
 
   // 3rd party dependencies.
   api.use([
-    'peerlibrary:server-autorun@0.2.2'
+    'peerlibrary:server-autorun@0.4.0'
   ], 'server');
 
   // Internal dependencies.
