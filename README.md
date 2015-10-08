@@ -10,7 +10,9 @@ reactive by default (you can still specify [`reactive: false`](http://docs.meteo
 queries to disable reactivity for a specific query, or use
 [`Tracker.nonreactive`](http://docs.meteor.com/#/full/tracker_nonreactive)). It will also automatically enable
 [server-side autorun](https://github.com/peerlibrary/meteor-server-autorun). All this might break some existing
-server-side code which might not expect to be reactive.
+server-side code which might not expect to be reactive. Inspect locations where your code or packages you are using
+already (before using this package) call `Tracker.autorun` on the server. In most cases this occurs only in the code
+which is shared between client and server.
 
 Server side only.
 
