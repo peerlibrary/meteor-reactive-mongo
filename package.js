@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Reactive server-side MongoDB queries",
-  version: '0.1.0',
+  version: '0.1.1',
   name: 'peerlibrary:reactive-mongo',
   git: 'https://github.com/peerlibrary/meteor-reactive-mongo.git'
 });
@@ -17,7 +17,7 @@ Package.onUse(function (api) {
 
   // 3rd party dependencies.
   api.use([
-    'peerlibrary:server-autorun@0.4.0'
+    'peerlibrary:server-autorun@0.5.1'
   ], 'server');
 
   // Package can be used without PeerDB. But if PeerDB is available, make
@@ -48,7 +48,7 @@ Package.onTest(function (api) {
 
   // 3rd party dependencies.
   api.use([
-    'peerlibrary:server-autorun@0.4.0'
+    'peerlibrary:server-autorun@0.5.1'
   ], 'server');
 
   // Internal dependencies.
