@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Reactive server-side MongoDB queries",
-  version: '0.2.1',
+  version: '0.2.2',
   name: 'peerlibrary:reactive-mongo',
   git: 'https://github.com/peerlibrary/meteor-reactive-mongo.git'
 });
@@ -18,7 +18,7 @@ Package.onUse(function (api) {
 
   // 3rd party dependencies.
   api.use([
-    'peerlibrary:server-autorun@0.7.0'
+    'peerlibrary:server-autorun@0.7.1'
   ], 'server');
 
   // Package can be used without PeerDB. But if PeerDB is available, make
@@ -53,7 +53,7 @@ Package.onTest(function (api) {
 
   // 3rd party dependencies.
   api.use([
-    'peerlibrary:server-autorun@0.7.0'
+    'peerlibrary:server-autorun@0.7.1'
   ], 'server');
 
   // Internal dependencies.
@@ -64,6 +64,7 @@ Package.onTest(function (api) {
   api.addFiles([
     // We modify environment to make Minimongo tests in fact use MongoDB database.
     'tests_prepare.js',
+    'meteor/packages/minimongo/matcher.js',
     'meteor/packages/minimongo/minimongo_tests.js',
     'meteor/packages/minimongo/minimongo_tests_client.js',
     'meteor/packages/minimongo/minimongo_tests_server.js',

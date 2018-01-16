@@ -78,7 +78,6 @@ var IGNORED_TESTS = [
   'minimongo - saveOriginals errors',
   'minimongo - pause',
   'minimongo - ids matched by selector',
-  'minimongo - lookup',
 
   // Pending pull requests.
   // See: https://github.com/meteor/meteor/pull/9539

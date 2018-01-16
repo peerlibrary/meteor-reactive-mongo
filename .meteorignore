@@ -1,1 +1,4 @@
-meteor/tools
+meteor/*
+!meteor/packages
+meteor/packages/*
+!meteor/packages/minimongo
