@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Reactive server-side MongoDB queries",
-  version: '0.2.0',
+  version: '0.2.1',
   name: 'peerlibrary:reactive-mongo',
   git: 'https://github.com/peerlibrary/meteor-reactive-mongo.git'
 });
