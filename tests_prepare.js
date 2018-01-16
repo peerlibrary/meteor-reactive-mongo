@@ -16,8 +16,6 @@ LocalCollection._f = originalLocalCollection._f;
 LocalCollection._compileProjection = originalLocalCollection._compileProjection;
 LocalCollection._binarySearch = originalLocalCollection._binarySearch;
 
-console.log("LocalCollection._f", LocalCollection._f)
-
 // Currently server and client side behaves differently when counting with skip. So we make it
 // behave the same for tests. See https://github.com/meteor/meteor/issues/1201
 var SynchronousCursor = Object.getPrototypeOf(MongoInternals.defaultRemoteCollectionDriver().mongo._createSynchronousCursor({'collectionName': 'foobar', 'options': {}})).constructor;
