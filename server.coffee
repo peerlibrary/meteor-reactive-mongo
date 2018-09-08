@@ -56,7 +56,8 @@ for method in ['forEach', 'map', 'fetch']
     originalMethod = MeteorCursor::[method]
     MeteorCursor::[method] = (args...) ->
       if @_isReactive()
-        ordered = @skip || (@limit && !@sort)
+        {skip, limit, sort} = @_cursorDescription.options
+        ordered = skip || (limit && !sort)
         callbacks = if ordered then callbacksOrdered else callbacksUnordered
         @_depend callbacks
 
