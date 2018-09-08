@@ -40,16 +40,26 @@ MeteorCursor::observeChanges = (options) ->
       handle.stop()
   handle
 
+callbacksOrdered =
+  addedBefore: true
+  removed: true
+  changed: true
+  movedBefore: true
+
+callbacksUnordered =
+  added: true
+  changed: true
+  removed: true
+
 for method in ['forEach', 'map', 'fetch']
   do (method) ->
     originalMethod = MeteorCursor::[method]
     MeteorCursor::[method] = (args...) ->
       if @_isReactive()
-        @_depend
-          addedBefore: true
-          removed: true
-          changed: true
-          movedBefore: true
+        ordered = @skip || (@limit && !@sort)
+        callbacks = if ordered then callbacksOrdered else callbacksUnordered
+        # callbacks = callbacksUnordered
+        @_depend callbacks
 
       originalMethod.apply @, args
 
