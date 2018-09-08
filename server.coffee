@@ -58,7 +58,6 @@ for method in ['forEach', 'map', 'fetch']
       if @_isReactive()
         ordered = @skip || (@limit && !@sort)
         callbacks = if ordered then callbacksOrdered else callbacksUnordered
-        # callbacks = callbacksUnordered
         @_depend callbacks
 
       originalMethod.apply @, args
