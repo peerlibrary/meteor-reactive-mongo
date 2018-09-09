@@ -94,6 +94,8 @@ var IGNORED_TESTS = [
   'minimongo - $near operator tests',
   'minimongo - $near and $geometry for legacy coordinates',
   'minimongo - modify',
+  // See: https://github.com/meteor/meteor/issues/10212
+  'minimongo - array sort',
   // See: https://github.com/meteor/meteor-feature-requests/issues/252
   'minimongo - basics',
   // See: https://github.com/meteor/meteor/issues/3597
