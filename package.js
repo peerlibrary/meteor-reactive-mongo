@@ -1,16 +1,16 @@
 Package.describe({
   summary: "Reactive server-side MongoDB queries",
-  version: '0.3.0',
+  version: '0.4.0',
   name: 'peerlibrary:reactive-mongo',
   git: 'https://github.com/peerlibrary/meteor-reactive-mongo.git'
 });
 
 Package.onUse(function (api) {
-  api.versionsFrom('METEOR@1.4.4.5');
+  api.versionsFrom('METEOR@1.8.1');
 
   // Core dependencies.
   api.use([
-    'coffeescript@2.0.3_3',
+    'coffeescript@2.4.1',
     'ecmascript',
     'underscore',
     'mongo'
@@ -18,14 +18,14 @@ Package.onUse(function (api) {
 
   // 3rd party dependencies.
   api.use([
-    'peerlibrary:server-autorun@0.7.1'
+    'peerlibrary:server-autorun@0.8.0'
   ], 'server');
 
   // Package can be used without PeerDB. But if PeerDB is available, make
   // sure it is loaded before this package so that PeerDB adds "exists"
   // to the cursor before we make it reactive.
   api.use([
-    'peerlibrary:peerdb@0.25.0'
+    'peerlibrary:peerdb@0.27.0'
   ], 'server', {'weak': true});
 
   api.addFiles([
@@ -34,7 +34,7 @@ Package.onUse(function (api) {
 });
 
 Package.onTest(function (api) {
-  api.versionsFrom('METEOR@1.4.4.5');
+  api.versionsFrom('METEOR@1.8.1');
 
   // Core dependencies.
   api.use([
@@ -53,7 +53,7 @@ Package.onTest(function (api) {
 
   // 3rd party dependencies.
   api.use([
-    'peerlibrary:server-autorun@0.7.1'
+    'peerlibrary:server-autorun@0.8.0'
   ], 'server');
 
   // Internal dependencies.
