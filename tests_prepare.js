@@ -82,10 +82,6 @@ var IGNORED_TESTS = [
   // Flaky. Failing on Travis CI.
   'minimongo - reactive count with cached cursor',
 
-  // Pending pull requests.
-  // See: https://github.com/meteor/meteor/pull/9539
-  'minimongo - cursors',
-
   // Fail because of difference between Minimongo and server. For some of these
   // tests (those with autorun) we have a fixed version in tests.js.
   'minimongo - sort function',
@@ -94,8 +90,6 @@ var IGNORED_TESTS = [
   'minimongo - $near operator tests',
   'minimongo - $near and $geometry for legacy coordinates',
   'minimongo - modify',
-  // See: https://github.com/meteor/meteor/issues/10212
-  'minimongo - array sort',
   // See: https://github.com/meteor/meteor-feature-requests/issues/252
   'minimongo - basics',
   // See: https://github.com/meteor/meteor/issues/3597
@@ -108,6 +102,8 @@ var IGNORED_TESTS = [
   'minimongo - count on cursor with limit',
   'minimongo - reactive skip/limit count while updating',
   'minimongo - fine-grained reactivity of query with fields projection',
+  // See: https://github.com/meteor/meteor/issues/11855
+  'minimongo - fetch with projection, subarrays',
 ];
 
 var originalTinytestAdd = Tinytest.add;

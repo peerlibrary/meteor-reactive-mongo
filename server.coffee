@@ -23,18 +23,18 @@ MeteorCursor::_depend = (changers) ->
   # so we are skipping initial documents manually.
   initializing = true
 
-  options = {}
+  callback = {}
   for fnName in ['added', 'changed', 'removed', 'addedBefore', 'movedBefore'] when changers[fnName]
-    options[fnName] = ->
+    callback[fnName] = ->
       dependency.changed() unless initializing
 
   # observeChanges will stop() when this computation is invalidated.
-  @observeChanges options
+  @observeChanges callback, {nonMutatingCallbacks: true}
 
   initializing = false
 
-MeteorCursor::observeChanges = (options) ->
-  handle = originalObserveChanges.call @, options
+MeteorCursor::observeChanges = (callbacks, options = {}) ->
+  handle = originalObserveChanges.call @, callbacks, options
   if Tracker.active and @_isReactive()
     Tracker.onInvalidate =>
       handle.stop()
